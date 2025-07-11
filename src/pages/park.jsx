@@ -18,7 +18,6 @@ const VehicleEntryForm = () => {
   const [slotError, setSlotError] = useState("");
   const [availableSlots, setAvailableSlots] = useState([]);
 
-  // Load this employee's slots only
   useEffect(() => {
     if (!userId) return;
 
@@ -72,6 +71,7 @@ const VehicleEntryForm = () => {
       vehicleType,
       identification: userId,
       startTime: new Date(),
+      status: "parked",
     };
 
     const updatedUserData = [...userData, newVehicle];

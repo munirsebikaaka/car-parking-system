@@ -21,7 +21,6 @@ const VehicleExitForm = () => {
 
     let foundData = null;
 
-    // Go through each user's data to find the vehicle
     for (const userId in parkingData) {
       const userVehicles = parkingData[userId];
 

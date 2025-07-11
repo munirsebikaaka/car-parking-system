@@ -17,7 +17,6 @@ const ParkingLot = () => {
     const allData = JSON.parse(localStorage.getItem("parkingData")) || {};
     const userData = allData[userId] || [];
 
-    // Build 50 slots based on current user
     const slots = Array.from({ length: totalSlots }, (_, index) => {
       const vehicle = userData.find((v) => v.slot === index);
       return {

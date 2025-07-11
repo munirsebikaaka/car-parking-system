@@ -1,6 +1,6 @@
 import "../uniqueStyles/nav.css";
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import {
   FaSignInAlt,
@@ -20,6 +20,20 @@ const Navigation = () => {
   const onLogout = () => {
     localStorage.removeItem("showApp");
     window.location.href = "/";
+    const date = new Date();
+    const month = date.getMonth() + 1;
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const day = date.getDate();
+    const year = date.getFullYear();
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    localStorage.setItem(
+      "loggedInUser",
+      JSON.stringify({
+        ...user,
+        logoutTime: `${day}/${month}/${year} ${hours}:${minutes}`,
+      })
+    );
   };
 
   return (

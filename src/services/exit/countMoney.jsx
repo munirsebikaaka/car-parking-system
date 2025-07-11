@@ -1,4 +1,5 @@
 import { keepLeftVehiclesData } from "./storeLeftVehicles";
+import { updateLeftVehicle } from "./updateLeftVehicle";
 const startTime = (values) => {
   const parkingData = JSON.parse(localStorage.getItem("parkingData")) || {};
 
@@ -13,7 +14,7 @@ const startTime = (values) => {
     }
   }
 
-  return null; // not found
+  return null;
 };
 
 export const countMoneyPaid = (
@@ -74,6 +75,5 @@ export const countMoneyPaid = (
       2
     )} hours and you gona pay $${parkingCost.toFixed(2)} ${data.vehicleType}`
   );
-
-  keepLeftVehiclesData(values);
+  updateLeftVehicle(values);
 };
